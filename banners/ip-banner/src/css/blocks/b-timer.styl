@@ -1,0 +1,110 @@
+.b-timer
+    display inline-block
+    width 18em
+    
+    &__title
+        color #000
+        text-align center
+        font-size 1em
+        font-weight 100
+        line-height 2.2em
+        letter-spacing .05em
+        
+    &__inner
+        &::after
+            content ''
+            display table
+            clear both
+            
+    &__count
+        float left
+        
+.b-count
+    position relative
+    text-align center
+    font-size 2em
+    margin 0 .25em
+    
+    &::after, &::before
+        content ''
+        position absolute
+        right -.3em
+        display block
+        width .1em
+        height .1em
+        border-radius 50% 50%
+        background #000
+        
+    &::before
+        top .2em
+    &::after
+        top .7em
+        
+    &:last-child
+        &::after, &::before
+            display none
+        
+    &__title
+        font-size .5em
+        font-weight 100
+        line-height 2em
+        color #000
+        
+    
+    &__part
+        float left
+        position relative
+        
+        &:first-child
+            margin-right .1em
+            
+        &-num
+            border-radius 5px
+            box-shadow 0 0 10px 0 rgba(0,0,0,0.5)
+            text-align center
+            position relative
+            perspective 2em
+            height 1em
+               
+            &::before, &::after
+                position relative
+                padding 0 .1em
+                display block
+                height .5em
+                overflow hidden
+                box-sizing border-box
+                color #fff
+
+            &::before
+                content attr(data-next)
+                background-image linear-gradient(#333, #000)
+                border-radius .1em .1em 0 0
+                border-bottom solid 1px #000
+
+            &::after
+                content attr(data-current)
+                background-image linear-gradient(#333, #000)
+                border-radius 0 0 .1em .1em
+                line-height 0
+                
+            &--active
+                position absolute
+                top 0
+
+                &::before
+                    content attr(data-current)
+                    transform-origin bottom
+                    transform rotateX(0deg)
+
+                    .flip &
+                        transform rotateX(-90deg)
+                        transition all 250ms ease-in-out
+
+                &::after
+                    content attr(data-next)
+                    transform-origin top
+                    transform rotateX(-90deg)
+
+                    .flip &
+                        transform rotateX(0deg)
+                        transition all 250ms ease-in-out 250ms

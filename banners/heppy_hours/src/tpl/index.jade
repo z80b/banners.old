@@ -1,0 +1,31 @@
+include ./mixins.jade
+head
+    style(type="text/css")
+        include ../.tmp/styles.css
+body
+    .b-happy-hours__wrapper
+        .b-happy-hours
+            .b-happy-hours__title
+                span Счастливые часы!  До 50% по промокоду: 
+                span.e-promo-code BF2016
+            .b-happy-hours__content
+                .b-happy-hours__slider.js-happy-hours-slider
+                    .b-happy-hours__slider-track.js-slider-track
+                        +slider-item('30', '11:00:00', '11:30:00') дополнительно на аксессуары
+                        +slider-item('30', '12:30:00', '12:00:00', 'active') дополнительно на аксессуары
+                        +slider-item('30', '13:01:00', '13:47:00') дополнительно на аксессуары
+                        +slider-item('30', '13:47:00', '16:30:00') дополнительно на аксессуары
+                        +slider-item('10', '17:02:00', '17:30:00') дополнительно на аксессуары
+                        +slider-item('40', '18:02:00', '18:30:00') дополнительно на аксессуары
+                        +slider-item('20', '55:02:00', '55:30:00') дополнительно на аксессуары
+                        +slider-item('30', '63:02:00', '63:30:00') дополнительно на аксессуары
+                    button.e-arrow.e-arrow-prev.js-slider-arrow(data-direction="-1")
+                    button.e-arrow.e-arrow-next.js-slider-arrow(data-direction="1")
+            .b-happy-hours__info
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta facilis dolores officiis ipsa
+                | facere, adipisci quae, obcaecati, blanditiis deserunt, quia ratione necessitatibus! Eligendi
+                | voluptates architecto quisquam asperiores, tenetur excepturi nemo! Lorem ipsum dolor sit amet, 
+                | consectetur adipisicing elit. Soluta facilis dolores officiis ipsa facere, adipisci quae,
+                | obcaecati, blanditiis deserunt, quia ratione necessitatibus! Eligendi voluptates architecto
+                | quisquam asperiores, tenetur excepturi nemo!
+    script(defer="defer"): include ../.tmp/scripts.js

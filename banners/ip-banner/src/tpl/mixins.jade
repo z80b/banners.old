@@ -1,0 +1,24 @@
+mixin b-timer(title, finalDate)
+    .b-timer.js-timer(data-final-date= finalDate)
+        .b-timer__title= title
+        .b-timer__inner.js-timer-content
+        script(type="text/template" id="timer-count-tpl")
+            .b-timer__count.b-count.js-timer-count(class!="js-timer-count--%name%")
+                .b-count__part.js-timer-count__part
+                    .b-count__part-num(data-current="0" data-next="0")
+                    .b-count__part-num(data-current="0" data-next="0" class="b-count__part-num--active")
+                .b-count__part.js-timer-count__part
+                    .b-count__part-num(data-current="0" data-next="0")
+                    .b-count__part-num(data-current="0" data-next="0" class="b-count__part-num--active")
+                .b-count__title!= '%title%'
+        script(type="text/javascript"): include ../.tmp/scripts.js
+
+mixin b-timer-count(title, type)
+    .b-timer__count.b-count.js-timer-count(class="js-timer-count--#{type}")
+        .b-count__part.js-timer-count__part
+            .b-count__part-num(data-current="0" data-next="0")
+            .b-count__part-num(data-current="0" data-next="0" class="b-count__part-num--active")
+        .b-count__part.js-timer-count__part
+            .b-count__part-num(data-current="0" data-next="0")
+            .b-count__part-num(data-current="0" data-next="0" class="b-count__part-num--active")
+        .b-count__title= title
