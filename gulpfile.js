@@ -17,7 +17,10 @@ gulp.task('styles', function() {
     return gulp.src(srcPath +'css/index.styl')
         .pipe(stylus({
             'include css': true,
-            'compress'   : true
+            'compress'   : true,
+            'rawDefine': {
+                'inline-image': stylus.stylus.url()
+            }
         }))
         .pipe(prefixer(['> 0%']))
         .pipe(rename('styles.css'))
@@ -39,7 +42,7 @@ gulp.task('tpl', ['styles', 'scripts'], function() {
             pretty: '    '
         }))
         .pipe(rename({extname:'.html'}))
-        .pipe(gulp.dest(srcPath));
+        .pipe(gulp.dest('banners/'+ bannerName));
 });
 
 gulp.task('default', ['main'], function() {
